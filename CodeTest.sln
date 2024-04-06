@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeTestWebApp", "CodeTestWebApp\CodeTestWebApp.csproj", "{B59696AD-9CF5-4D3F-91EB-10F781C4C7B0}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "codetestreactui", "CodeTestReactUI\CodeTestReactUI\codetestreactui.esproj", "{2F11873A-19E8-49D1-B768-6CB02D4B6EA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B59696AD-9CF5-4D3F-91EB-10F781C4C7B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B59696AD-9CF5-4D3F-91EB-10F781C4C7B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B59696AD-9CF5-4D3F-91EB-10F781C4C7B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B59696AD-9CF5-4D3F-91EB-10F781C4C7B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F11873A-19E8-49D1-B768-6CB02D4B6EA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F11873A-19E8-49D1-B768-6CB02D4B6EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F11873A-19E8-49D1-B768-6CB02D4B6EA8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2F11873A-19E8-49D1-B768-6CB02D4B6EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F11873A-19E8-49D1-B768-6CB02D4B6EA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F11873A-19E8-49D1-B768-6CB02D4B6EA8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E0D437F-3DE2-40AD-98D3-D0F485CA81DB}
+	EndGlobalSection
+EndGlobal
