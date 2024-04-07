@@ -39,3 +39,19 @@
 .read-the-docs {
   color: #888;
 }
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.mb-2 {
+    margin-bottom: 1rem;
+}
+
+.mr-2 {
+    margin-right: 1rem;
+}
