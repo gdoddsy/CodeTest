@@ -9,10 +9,9 @@ function App() {
 				<b>Instructions</b>
 			</div>
 			<div>
-				Add 3 sections to this page. Swagger API documentation can be found <a href="https://codetestwebapp20240407064956.azurewebsites.net/swagger/index.html">here</a>.
+				Complete the following 3 tasks on this page. Swagger API documentation for each task can be found <a href="https://codetestwebapp20240407064956.azurewebsites.net/swagger/index.html">here</a>.
 				<ol>
-					<li>Allow the user to enter a number (using the <a href="https://www.telerik.com/kendo-react-ui/components/inputs/numerictextbox/formats/">KendoUI NumericTextBox</a>) and submit that number to the
-						ResolveFizzBuzzNumber endpoint at: <a href="https://codetestwebapp20240407064956.azurewebsites.net/ResolveFizzBuzzNumber">https://codetestwebapp20240407064956.azurewebsites.net/ResolveFizzBuzzNumber</a> and show the result on the screen next to the users input.
+					<li>Allow the user to enter a number (using the <a href="https://www.telerik.com/kendo-react-ui/components/inputs/numerictextbox/formats/">KendoUI NumericTextBox</a>) and submit that number to the ResolveFizzBuzzNumber endpoint at: <a href="https://codetestwebapp20240407064956.azurewebsites.net/ResolveFizzBuzzNumber">https://codetestwebapp20240407064956.azurewebsites.net/ResolveFizzBuzzNumber</a> and show the result on the screen next to the users input.
 					</li>
 					<li>
 						Allow the user to enter 2 numbers: starting number and count. Submit both of these numbers to <a href="https://codetestwebapp20240407064956.azurewebsites.net/CreateFizzBuzzResultsList">https://codetestwebapp20240407064956.azurewebsites.net/CreateFizzBuzzResultsList</a>. The result is a list. Display this list in a grid (ideally <a href="https://www.telerik.com/kendo-react-ui/components/grid/">KendoUI Grid</a> - ignore the background saying it's unlicensed)
