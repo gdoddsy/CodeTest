@@ -37,8 +37,7 @@ function App() {
         const result = await api.resolveFizzBuzzNumberList(
             { numberToCheck: parseInt(elem.value) }
         )
-        const value = result.data
-        setQ1(value)
+        setQ1(result.data)
     }
 
     // INFO: Question 2
@@ -61,8 +60,7 @@ function App() {
                 totalNumbers: parseInt(size.value)
             }
         )
-        const value = await result.json()
-        setQ2(q2Display(value))
+        setQ2(q2Display(result.data))
     }
 
     const q2Display = (value: FizzBuzzResults[]) => {
