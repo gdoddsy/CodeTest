@@ -34,14 +34,10 @@ function App() {
         const api = new ResolveFizzBuzzNumber()
         api.baseUrl = baseUrl
 
-        // DEV: The following was for testing the response from the API endpoint due to "no-cors" clearing out the response
-
-        //setQ1("fizz")
         const result = await api.resolveFizzBuzzNumberList(
-            { numberToCheck: parseInt(elem.value) },
-            { mode: "no-cors" }
+            { numberToCheck: parseInt(elem.value) }
         )
-        const value = await result.text()
+        const value = result.data
         setQ1(value)
     }
 
@@ -59,28 +55,11 @@ function App() {
         const api = new CreateFizzBuzzResultsList()
         api.baseUrl = baseUrl
 
-        // DEV: The following was for testing the response from the API endpoint due to "no-cors" clearing out the response
-
-        // const value = [
-        //     {
-        //         "number": 1,
-        //         "result": "1"
-        //     },
-        //     {
-        //         "number": 2,
-        //         "result": "2"
-        //     },
-        //     {
-        //         "number": 3,
-        //         "result": "Fizz"
-        //     }
-        // ] as FizzBuzzResults[]
         const result = await api.createFizzBuzzResultsListList(
             {
                 startNumber: parseInt(start.value),
                 totalNumbers: parseInt(size.value)
-            },
-            { mode: "no-cors" }
+            }
         )
         const value = await result.json()
         setQ2(q2Display(value))
@@ -189,7 +168,7 @@ function App() {
                             ref={q1Ref}
                         />
                     </div>
-                    <div className='flex'>
+                    <div className='flex pt-1-5'>
                         {q1}
                     </div>
                 </div>
