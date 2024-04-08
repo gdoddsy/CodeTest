@@ -97,8 +97,7 @@ function App() {
         const api = new VerifyFizzBuzzResults()
         api.baseUrl = baseUrl
         const result = await api.verifyFizzBuzzResultsCreate(massaged_data)
-        const value = await result.json()
-        setQ3([...value])
+        setQ3([...result.data])
     }
 
     const rowClick = (event: GridRowClickEvent) => {
