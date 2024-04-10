@@ -22,6 +22,7 @@ export class ResolveFizzBuzzNumber<SecurityDataType = unknown> extends HttpClien
   resolveFizzBuzzNumberList = (
     query?: {
       /** @format int32 */
+      
       numberToCheck?: number;
     },
     params: RequestParams = {},

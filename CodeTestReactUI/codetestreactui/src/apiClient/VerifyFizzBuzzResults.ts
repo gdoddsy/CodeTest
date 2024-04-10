@@ -12,7 +12,7 @@
 import { FizzBuzzResults } from "./data-contracts";
 import { ContentType, HttpClient, RequestParams } from "./http-client";
 
-export class VerifyFizzBuzzResults<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
+export class VerifyResults<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
   /**
    * No description
    *

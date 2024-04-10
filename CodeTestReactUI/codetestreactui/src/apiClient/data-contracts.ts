@@ -14,3 +14,12 @@ export interface FizzBuzzResults {
   number?: number;
   result?: string | null;
 }
+
+export class FizzBuzzCreateInput {
+  /** @format int32 */
+  startingNumber?: number;
+  count?:  number;
+}
+
+
+

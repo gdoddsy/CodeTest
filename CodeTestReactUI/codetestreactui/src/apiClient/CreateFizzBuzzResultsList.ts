@@ -9,10 +9,11 @@
  * ---------------------------------------------------------------
  */
 
-import { FizzBuzzResults } from "./data-contracts";
+import { FizzBuzzResults, } from "./data-contracts";
 import { HttpClient, RequestParams } from "./http-client";
 
-export class CreateFizzBuzzResultsList<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
+
+export class FizzBuzzResultsList<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
   /**
    * No description
    *
