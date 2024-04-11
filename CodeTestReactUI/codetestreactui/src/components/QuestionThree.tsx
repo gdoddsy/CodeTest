@@ -2,7 +2,7 @@ import { Card, CardBody, CardHeader, CardTitle } from "@progress/kendo-react-lay
 import { VerifyFizzBuzzResults } from "../apiClient/VerifyFizzBuzzResults"
 import { FizzBuzzResults } from "../apiClient/data-contracts"
 import { Grid, GridColumn, GridItemChangeEvent, GridRowClickEvent, GridToolbar } from "@progress/kendo-react-grid"
-import { ElementRef, useRef, useState } from "react"
+import { BaseSyntheticEvent, ElementRef, useRef, useState } from "react"
 
 interface FizzBuzzResultsEdit extends FizzBuzzResults {
     inEdit?: boolean
@@ -12,7 +12,7 @@ interface FizzBuzzResultsEdit extends FizzBuzzResults {
 const QuestionThree = ({ url }: { url?: string }) => {
     const baseUrl = url ?? ""
     const gridRef = useRef<ElementRef<typeof Grid>>()
-    const [result, setRename] = useState<FizzBuzzResultsEdit[]>([])
+    const [result, setResult] = useState<FizzBuzzResultsEdit[]>([])
     const [editId, setEditId] = useState<number | null>(null)
 
     const verifyFizzBuzzResult = async () => {
@@ -32,15 +32,7 @@ const QuestionThree = ({ url }: { url?: string }) => {
         })
         const api = new VerifyFizzBuzzResults({ baseUrl })
         const result = await api.verifyFizzBuzzResultsCreate(massaged_data)
-        setRename([...result.data])
-    }
-
-    const rowClick = (event: GridRowClickEvent) => {
-        if (event.dataItem.id === editId) {
-            setEditId(null)
-        } else {
-            setEditId(event.dataItem.id)
-        }
+        setResult([...result.data])
     }
 
     const itemChange = (event: GridItemChangeEvent) => {
@@ -56,7 +48,7 @@ const QuestionThree = ({ url }: { url?: string }) => {
                 return itm
             }
         })
-        setRename(newData)
+        setResult(newData)
     }
 
     const addItem = () => {
@@ -66,8 +58,59 @@ const QuestionThree = ({ url }: { url?: string }) => {
             number: undefined,
             result: null
         }
-        setRename([...result, newRecord])
+        setResult([...result, newRecord])
         setEditId(newRecord.id!)
+    }
+
+    const clearAllItems = () => {
+        setResult([])
+    }
+
+    const clearItem = (item: FizzBuzzResultsEdit) => {
+        setResult(result.filter((itm) => itm.id !== item.id))
+    }
+
+    const editItem = (item: FizzBuzzResultsEdit) => {
+        if (item.id === editId) {
+            setEditId(null)
+        } else {
+            setEditId(item.id ?? null)
+        }
+    }
+
+    const itemActions = (props) => {
+        const item = props.dataItem as FizzBuzzResultsEdit
+        if (true === item.inEdit) {
+            return (
+                <td>
+                    <button
+                        title="Remove"
+                        className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary mr-2"
+                        onClick={() => clearItem(item)}
+                    >
+                        Remove
+                    </button>
+                    <button
+                        title="Exit Edit"
+                        className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary"
+                        onClick={() => editItem(item)}
+                    >
+                        Exit Edit
+                    </button>
+                </td>
+            )
+        }
+        return (
+            <td>
+                <button
+                    title="Edit"
+                    className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary"
+                    onClick={() => editItem(item)}
+                >
+                    Edit
+                </button>
+            </td>
+        )
     }
 
     return (
@@ -90,27 +133,27 @@ const QuestionThree = ({ url }: { url?: string }) => {
                                 id: idx + 1
                             }))}
                             editField='inEdit'
-                            onRowClick={rowClick}
                             onItemChange={itemChange}
                             ref={gridRef}
+                            className="mb-2"
                         >
                             <GridToolbar>
                                 <div>
                                     <button
-                                        title="Add new"
+                                        title="Add Item"
                                         className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary"
                                         onClick={addItem}
                                     >
-                                        Add new
+                                        Add Item
                                     </button>
                                 </div>
                                 <div>
                                     <button
-                                        title="Submit Q3"
-                                        className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary"
-                                        onClick={verifyFizzBuzzResult}
+                                        title="Clear All Items"
+                                        className="k-button k-button-md k-rounded-md k-button-solid k-button-solid"
+                                        onClick={clearAllItems}
                                     >
-                                        Submit Q3
+                                        Clear All Items
                                     </button>
                                 </div>
                             </GridToolbar>
@@ -120,7 +163,17 @@ const QuestionThree = ({ url }: { url?: string }) => {
                                 editor="numeric"
                             />
                             <GridColumn field="result" title="Result" />
+                            <GridColumn title="Actions" cell={itemActions} />
                         </Grid>
+                        <div>
+                            <button
+                                title="Submit Q3"
+                                className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary"
+                                onClick={verifyFizzBuzzResult}
+                            >
+                                Submit Q3
+                            </button>
+                        </div>
                     </Card>
                 </CardBody>
             </Card>
