@@ -39,3 +39,23 @@
 .read-the-docs {
   color: #888;
 }
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mr-2 {
+    margin-right: 2rem;
+}
+
+.pt-1-5 {
+    padding-top: 1.5rem;
+}
