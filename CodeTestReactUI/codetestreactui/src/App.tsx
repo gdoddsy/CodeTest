@@ -1,8 +1,7 @@
-import { useState } from 'react'
-import './App.css'
+import { CardDeck } from './components/card/CardDeck';
+import './App.css';
 
 function App() {
-
 	return (
 		<>
 			<div>
@@ -21,7 +20,7 @@ function App() {
 					</li>
 				</ol>
 			</div>
-
+			<CardDeck/>
 		</>
 	)
 }
